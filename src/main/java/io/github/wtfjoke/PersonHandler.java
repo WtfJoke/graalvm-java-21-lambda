@@ -1,17 +1,19 @@
 package io.github.wtfjoke;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.RequestHandler;
+import java.io.InputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 
-public class PersonHandler implements RequestHandler<Object, String> {
 
-	static {
-		System.setProperty("software.amazon.awssdk.http.service.impl",
-				"software.amazon.awssdk.http.urlconnection.UrlConnectionSdkHttpService");
-	}
+public class PersonHandler {
 
-	@Override
-	public String handleRequest(Object event, Context context) {
-		return "hi";
-	}
+    public void handleRequest(InputStream inputStream, OutputStream outputStream) throws IOException {
+        try {
+            outputStream.write("ok".getBytes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            outputStream.close();
+        }
+    }
 }

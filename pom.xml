@@ -37,9 +37,9 @@
 			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-lambda-java-runtime-interface-client</artifactId>
-			<version>2.4.1</version>
+            <groupId>com.formkiq</groupId>
+            <artifactId>lambda-runtime-graalvm</artifactId>
+            <version>2.3.1</version>
 		</dependency>
 	</dependencies>
 	<profiles>
@@ -60,7 +60,7 @@
 						</executions>
 						<configuration>
 							<imageName>${imageName}</imageName>
-							<mainClass>com.amazonaws.services.lambda.runtime.api.client.AWSLambda</mainClass>
+							<mainClass>com.formkiq.lambda.runtime.graalvm.LambdaRuntime</mainClass>
 							<buildArgs combine.children="append">
 								--verbose
 								--no-fallback
